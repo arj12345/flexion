@@ -10,20 +10,51 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { inputValue, inputUnit, toUnit, studentAnswer };
-    var input = parseInt(inputValue);
+    var input = parseFloat(inputValue);
     var grade = "correct";
     var result = 0;
-
     if (
+      (inputUnit.toLowerCase() != "celsius" &&
+        inputUnit.toLowerCase() != "fahrenheit" &&
+        inputUnit.toLowerCase() != "kelvin" &&
+        inputUnit.toLowerCase() != "rankine" &&
+        inputUnit.toLowerCase() !== "liters" &&
+        inputUnit.toLowerCase() !== "tablespoons" &&
+        inputUnit.toLowerCase() !== "gallons" &&
+        inputUnit.toLowerCase() !== "cups" &&
+        inputUnit.toLowerCase() !== "cubic-feet" &&
+        inputUnit.toLowerCase() !== "cubic-inches") ||
+      (toUnit.toLowerCase() != "celsius" &&
+        toUnit.toLowerCase() != "fahrenheit" &&
+        toUnit.toLowerCase() != "kelvin" &&
+        toUnit.toLowerCase() != "rankine" &&
+        toUnit.toLowerCase() !== "liters" &&
+        toUnit.toLowerCase() !== "tablespoons" &&
+        toUnit.toLowerCase() !== "gallons" &&
+        toUnit.toLowerCase() !== "cups" &&
+        toUnit.toLowerCase() !== "cubic-feet" &&
+        toUnit.toLowerCase() !== "cubic-inches")
+    ) {
+      grade = "invalid";
+      setMessage("invalid");
+    } else if (
       inputUnit.toLowerCase() === "celsius" &&
       toUnit.toLowerCase() === "fahrenheit"
     ) {
-      if (studentAnswer == celsiusToFahrenheit(input)) {
+      var a = Math.round(studentAnswer * 10) / 10;
+      var b = Math.round(celsiusToFahrenheit(input) * 10) / 10;
+      console.log(a === b);
+      console.log(a);
+      console.log(b);
+      if (
+        Math.round(studentAnswer * 10) / 10 ===
+        Math.round(celsiusToFahrenheit(input) * 10) / 10
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "fahrenheit" &&
@@ -33,8 +64,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "celsius" &&
@@ -44,8 +75,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "kelvin" &&
@@ -55,8 +86,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "fahrenheit" &&
@@ -66,8 +97,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "kelvin" &&
@@ -77,8 +108,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "fahrenheit" &&
@@ -88,8 +119,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "fahrenheit" &&
@@ -99,8 +130,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "celsius" &&
@@ -110,8 +141,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "rankine" &&
@@ -121,8 +152,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "rankine" &&
@@ -132,8 +163,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "kelvin" &&
@@ -143,8 +174,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       /**           Volume Conversions            **/
@@ -155,8 +186,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "gallons" &&
@@ -166,8 +197,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cups" &&
@@ -177,8 +208,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "gallons" &&
@@ -188,8 +219,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "gallons" &&
@@ -199,8 +230,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "tablespoons" &&
@@ -210,8 +241,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-inches" &&
@@ -221,8 +252,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "gallons" &&
@@ -232,8 +263,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "gallons" &&
@@ -243,8 +274,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-feet" &&
@@ -254,8 +285,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-inches" &&
@@ -265,8 +296,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-feet" &&
@@ -276,8 +307,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-inches" &&
@@ -287,8 +318,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "liters" &&
@@ -298,8 +329,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "liters" &&
@@ -309,8 +340,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "tablespoons" &&
@@ -320,8 +351,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "liters" &&
@@ -331,8 +362,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cups" &&
@@ -342,8 +373,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "liters" &&
@@ -353,8 +384,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-feet" &&
@@ -364,8 +395,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "tablespoons" &&
@@ -375,8 +406,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-inches" &&
@@ -386,8 +417,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-feet" &&
@@ -397,8 +428,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cups" &&
@@ -408,8 +439,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cups" &&
@@ -419,8 +450,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "tablespoons" &&
@@ -430,8 +461,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "tablespoons" &&
@@ -441,8 +472,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-feet" &&
@@ -452,8 +483,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cups" &&
@@ -463,8 +494,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     } else if (
       inputUnit.toLowerCase() === "cubic-inches" &&
@@ -474,8 +505,8 @@ const Create = () => {
         grade = "correct";
         setMessage("correct");
       } else {
-        grade = "wrong";
-        setMessage("wrong");
+        grade = "incorrect";
+        setMessage("incorrect");
       }
     }
 
