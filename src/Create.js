@@ -41,11 +41,6 @@ const Create = () => {
       inputUnit.toLowerCase() === "celsius" &&
       toUnit.toLowerCase() === "fahrenheit"
     ) {
-      var a = Math.round(studentAnswer * 10) / 10;
-      var b = Math.round(celsiusToFahrenheit(input) * 10) / 10;
-      console.log(a === b);
-      console.log(a);
-      console.log(b);
       if (
         Math.round(studentAnswer * 10) / 10 ===
         Math.round(celsiusToFahrenheit(input) * 10) / 10
@@ -60,7 +55,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "fahrenheit" &&
       toUnit.toLowerCase() === "celsius"
     ) {
-      if (studentAnswer == fahrenheitToCelsius(input)) {
+      if (
+        Math.round(studentAnswer * 10) / 10 ===
+        Math.round(fahrenheitToCelsius(input) * 10) / 10
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
