@@ -402,6 +402,17 @@ const Create = () => {
       }
     } else if (
       inputUnit.toLowerCase() === "cups" &&
+      toUnit.toLowerCase() === "cubic-feet"
+    ) {
+      if (studentAnswer == cupsToCubicfeet(input)) {
+        grade = "correct";
+        setMessage("correct");
+      } else {
+        grade = "wrong";
+        setMessage("wrong");
+      }
+    } else if (
+      inputUnit.toLowerCase() === "cups" &&
       toUnit.toLowerCase() === "tablespoons"
     ) {
       if (studentAnswer == cupsToTablespoons(input)) {
@@ -416,6 +427,50 @@ const Create = () => {
       toUnit.toLowerCase() === "cups"
     ) {
       if (studentAnswer == tablespoonsToCups(input)) {
+        grade = "correct";
+        setMessage("correct");
+      } else {
+        grade = "wrong";
+        setMessage("wrong");
+      }
+    } else if (
+      inputUnit.toLowerCase() === "tablespoons" &&
+      toUnit.toLowerCase() === "cubic-feet"
+    ) {
+      if (studentAnswer == tablespoonsToCubicfeet(input)) {
+        grade = "correct";
+        setMessage("correct");
+      } else {
+        grade = "wrong";
+        setMessage("wrong");
+      }
+    } else if (
+      inputUnit.toLowerCase() === "cubic-feet" &&
+      toUnit.toLowerCase() === "tablespoons"
+    ) {
+      if (studentAnswer == cubicfeetToTablespoons(input)) {
+        grade = "correct";
+        setMessage("correct");
+      } else {
+        grade = "wrong";
+        setMessage("wrong");
+      }
+    } else if (
+      inputUnit.toLowerCase() === "cups" &&
+      toUnit.toLowerCase() === "cubic-inches"
+    ) {
+      if (studentAnswer == cupsToCubicinches(input)) {
+        grade = "correct";
+        setMessage("correct");
+      } else {
+        grade = "wrong";
+        setMessage("wrong");
+      }
+    } else if (
+      inputUnit.toLowerCase() === "cubic-inches" &&
+      toUnit.toLowerCase() === "cups"
+    ) {
+      if (studentAnswer == cubicinchesToCups(input)) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -450,8 +505,10 @@ const Create = () => {
   const gallonsToCubicinches = (gallons) => gallons * 231;
   const cubicfeetToGallons = (cubicfeet) => cubicfeet * 7.48052;
   const gallonsToCubicfeet = (gallons) => gallons * 0.133681;
+
   const cubicinchesToCubicfeet = (cubicinches) => cubicinches * 0.000578704;
   const cubicfeetToCubicinches = (cubicfeet) => cubicfeet * 1728;
+
   const litersToCubicinches = (liters) => liters * 61.0237;
   const cubicinchesToLiters = (cubicinches) => cubicinches * 0.0163871;
   const litersToTablespoons = (liters) => liters * 67.628;
@@ -460,12 +517,19 @@ const Create = () => {
   const cupsToLiters = (cups) => cups * 0.2365;
   const litersToCubicfeet = (liters) => liters * 0.0353;
   const cubicfeetToLiters = (cubicfeet) => cubicfeet * 28.317;
+
   const tablespoonsToCubicinches = (tablespoons) => tablespoons * 0.902;
   const cubicinchesToTablespoons = (cubicinches) => cubicinches * 1.108;
-  const cubicfeetToCups = (cubicfeet) => cubicfeet * 119.688;
-  const cupsToCubicfeet = (cups) => cups * 0.008355;
   const cupsToTablespoons = (cups) => cups * 16;
   const tablespoonsToCups = (tablespoons) => tablespoons * 0.0625;
+  const tablespoonsToCubicfeet = (tablespoons) => tablespoons * 0.000522;
+  const cubicfeetToTablespoons = (cubicfeet) => cubicfeet * 1915.01;
+
+  const cubicfeetToCups = (cubicfeet) => cubicfeet * 119.688;
+  const cupsToCubicfeet = (cups) => cups * 0.008355;
+
+  const cupsToCubicinches = (cups) => cups * 14.437;
+  const cubicinchesToCups = (cubicinches) => cubicinches * 0.0693;
 
   return (
     <div className="create">
@@ -479,26 +543,19 @@ const Create = () => {
           onChange={(e) => setInputValue(e.target.value)}
         />
         <label>Input Unit:</label>
-        <textarea
+        <input
           required
           value={inputUnit}
           onChange={(e) => setInputUnit(e.target.value)}
-        ></textarea>
+        ></input>
         <label>To Unit:</label>
         <input
           type="text"
           required
           value={toUnit}
           onChange={(e) => setToUnit(e.target.value)}
-        />
-        <label>Convert from:</label>
-        <select
-          value={studentAnswer}
-          onChange={(e) => setStudentAnswer(e.target.value)}
-        >
-          <option value="m">Celcius to Kelvin</option>
-          <option value="y">Kelvin to Celcius</option>
-        </select>
+        ></input>
+
         <label>Student Answer:</label>
         <textarea
           required
