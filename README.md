@@ -1,6 +1,6 @@
-Note: Checkout the dev branch
 
-# Getting Started with Create React App
+
+# Getting Started with Create React App : => Checkout the dev branch
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
