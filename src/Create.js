@@ -42,8 +42,8 @@ const Create = () => {
       toUnit.toLowerCase() === "fahrenheit"
     ) {
       if (
-        Math.round(studentAnswer * 10) / 10 ===
-        Math.round(celsiusToFahrenheit(input) * 10) / 10
+        parseFloat(studentAnswer).toFixed(1) ===
+        celsiusToFahrenheit(input).toFixed(1)
       ) {
         grade = "correct";
         setMessage("correct");
@@ -56,8 +56,8 @@ const Create = () => {
       toUnit.toLowerCase() === "celsius"
     ) {
       if (
-        Math.round(studentAnswer * 10) / 10 ===
-        Math.round(fahrenheitToCelsius(input) * 10) / 10
+        parseFloat(studentAnswer).toFixed(1) ===
+        fahrenheitToCelsius(input).toFixed(1)
       ) {
         grade = "correct";
         setMessage("correct");
@@ -69,7 +69,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "celsius" &&
       toUnit.toLowerCase() === "kelvin"
     ) {
-      if (studentAnswer == celsiusToKelvin(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        celsiusToKelvin(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -80,7 +83,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "kelvin" &&
       toUnit.toLowerCase() === "celsius"
     ) {
-      if (studentAnswer == kelvinToCelcius(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        kelvinToCelcius(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -91,7 +97,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "fahrenheit" &&
       toUnit.toLowerCase() === "kelvin"
     ) {
-      if (studentAnswer == celsiusToKelvin(fahrenheitToCelsius(input))) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        fahrenheitToKelvin(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -102,7 +111,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "kelvin" &&
       toUnit.toLowerCase() === "fahrenheit"
     ) {
-      if (studentAnswer == celsiusToFahrenheit(kelvinToCelcius(input))) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        kelvinToFahrenheit(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -113,7 +125,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "fahrenheit" &&
       toUnit.toLowerCase() === "rankine"
     ) {
-      if (studentAnswer == fahrenheitToRankine(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        fahrenheitToRankine(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -121,10 +136,13 @@ const Create = () => {
         setMessage("incorrect");
       }
     } else if (
-      inputUnit.toLowerCase() === "fahrenheit" &&
-      toUnit.toLowerCase() === "rankine"
+      inputUnit.toLowerCase() === "rankine" &&
+      toUnit.toLowerCase() === "fahrenheit"
     ) {
-      if (studentAnswer == rankineToFahrenheit(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        rankineToFahrenheit(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -135,7 +153,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "celsius" &&
       toUnit.toLowerCase() === "rankine"
     ) {
-      if (studentAnswer == fahrenheitToRankine(celsiusToFahrenheit(input))) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        celsiusToRankine(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -146,7 +167,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "rankine" &&
       toUnit.toLowerCase() === "celsius"
     ) {
-      if (studentAnswer == fahrenheitToCelsius(rankineToFahrenheit(input))) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        rankineToCelsius(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -157,7 +181,12 @@ const Create = () => {
       inputUnit.toLowerCase() === "rankine" &&
       toUnit.toLowerCase() === "kelvin"
     ) {
-      if (studentAnswer == fahrenheitToKelvin(rankineToFahrenheit(input))) {
+      console.log(parseFloat(studentAnswer).toFixed(1));
+      console.log(rankineToKelvin(input).toFixed(1));
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        rankineToKelvin(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -168,7 +197,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "kelvin" &&
       toUnit.toLowerCase() === "rankine"
     ) {
-      if (studentAnswer == fahrenheitToRankine(fahrenheitToCelsius(input))) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        kelvinToRankine(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -180,7 +212,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "liters" &&
       toUnit.toLowerCase() === "gallons"
     ) {
-      if (studentAnswer == litersToGallons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        litersToGallons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -191,7 +226,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "gallons" &&
       toUnit.toLowerCase() === "liters"
     ) {
-      if (studentAnswer == gallonsToLiters(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        gallonsToLiters(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -202,7 +240,9 @@ const Create = () => {
       inputUnit.toLowerCase() === "cups" &&
       toUnit.toLowerCase() === "gallons"
     ) {
-      if (studentAnswer == cupsToGallons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) === cupsToGallons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -213,7 +253,9 @@ const Create = () => {
       inputUnit.toLowerCase() === "gallons" &&
       toUnit.toLowerCase() === "cups"
     ) {
-      if (studentAnswer == gallonsToCups(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) === gallonsToCups(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -224,7 +266,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "gallons" &&
       toUnit.toLowerCase() === "tablespoons"
     ) {
-      if (studentAnswer == gallonsToTablespoons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        gallonsToTablespoons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -235,7 +280,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "tablespoons" &&
       toUnit.toLowerCase() === "gallons"
     ) {
-      if (studentAnswer == tablespoonsToGallons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        tablespoonsToGallons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -246,7 +294,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-inches" &&
       toUnit.toLowerCase() === "gallons"
     ) {
-      if (studentAnswer == cubicinchesToGallons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicinchesToGallons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -255,9 +306,12 @@ const Create = () => {
       }
     } else if (
       inputUnit.toLowerCase() === "gallons" &&
-      toUnit.toLowerCase() === "cubic inches"
+      toUnit.toLowerCase() === "cubic-inches"
     ) {
-      if (studentAnswer == gallonsToCubicinches(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        gallonsToCubicinches(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -266,9 +320,12 @@ const Create = () => {
       }
     } else if (
       inputUnit.toLowerCase() === "gallons" &&
-      toUnit.toLowerCase() === "cubic feet"
+      toUnit.toLowerCase() === "cubic-feet"
     ) {
-      if (studentAnswer == gallonsToCubicfeet(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        gallonsToCubicfeet(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -279,7 +336,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-feet" &&
       toUnit.toLowerCase() === "gallons"
     ) {
-      if (studentAnswer == cubicfeetToGallons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicfeetToGallons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -290,7 +350,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-inches" &&
       toUnit.toLowerCase() === "cubic-feet"
     ) {
-      if (studentAnswer == cubicinchesToCubicfeet(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicinchesToCubicfeet(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -301,7 +364,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-feet" &&
       toUnit.toLowerCase() === "cubic-inches"
     ) {
-      if (studentAnswer == cubicfeetToCubicinches(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicfeetToCubicinches(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -312,7 +378,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-inches" &&
       toUnit.toLowerCase() === "liters"
     ) {
-      if (studentAnswer == cubicinchesToLiters(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicinchesToLiters(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -323,7 +392,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "liters" &&
       toUnit.toLowerCase() === "cubic-inches"
     ) {
-      if (studentAnswer == litersToCubicinches(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        litersToCubicinches(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -334,7 +406,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "liters" &&
       toUnit.toLowerCase() === "tablespoons"
     ) {
-      if (studentAnswer == litersToTablespoons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        litersToTablespoons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -345,7 +420,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "tablespoons" &&
       toUnit.toLowerCase() === "liters"
     ) {
-      if (studentAnswer == tablespoonsToLiters(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        tablespoonsToLiters(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -356,7 +434,9 @@ const Create = () => {
       inputUnit.toLowerCase() === "liters" &&
       toUnit.toLowerCase() === "cups"
     ) {
-      if (studentAnswer == litersToCups(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) === litersToCups(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -367,7 +447,11 @@ const Create = () => {
       inputUnit.toLowerCase() === "cups" &&
       toUnit.toLowerCase() === "liters"
     ) {
-      if (studentAnswer == cupsToLiters(input)) {
+      console.log(parseFloat(studentAnswer).toFixed(1));
+      console.log(cupsToLiters(input).toFixed(1));
+      if (
+        parseFloat(studentAnswer).toFixed(1) === cupsToLiters(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -378,7 +462,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "liters" &&
       toUnit.toLowerCase() === "cubic-feet"
     ) {
-      if (studentAnswer == litersToCubicfeet(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        litersToCubicfeet(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -389,7 +476,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-feet" &&
       toUnit.toLowerCase() === "liters"
     ) {
-      if (studentAnswer == cubicfeetToLiters(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicfeetToLiters(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -400,7 +490,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "tablespoons" &&
       toUnit.toLowerCase() === "cubic-inches"
     ) {
-      if (studentAnswer == tablespoonsToCubicinches(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        tablespoonsToCubicinches(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -411,7 +504,12 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-inches" &&
       toUnit.toLowerCase() === "tablespoons"
     ) {
-      if (studentAnswer == cubicinchesToTablespoons(input)) {
+      console.log(parseFloat(studentAnswer).toFixed(1));
+      console.log(cubicinchesToTablespoons(input).toFixed(1));
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicinchesToTablespoons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -422,7 +520,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-feet" &&
       toUnit.toLowerCase() === "cups"
     ) {
-      if (studentAnswer == cubicfeetToCups(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicfeetToCups(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -430,10 +531,14 @@ const Create = () => {
         setMessage("incorrect");
       }
     } else if (
+      ////*/////
       inputUnit.toLowerCase() === "cups" &&
       toUnit.toLowerCase() === "cubic-feet"
     ) {
-      if (studentAnswer == cupsToCubicfeet(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cupsToCubicfeet(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -444,7 +549,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cups" &&
       toUnit.toLowerCase() === "tablespoons"
     ) {
-      if (studentAnswer == cupsToTablespoons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cupsToTablespoons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -455,7 +563,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "tablespoons" &&
       toUnit.toLowerCase() === "cups"
     ) {
-      if (studentAnswer == tablespoonsToCups(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        tablespoonsToCups(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -466,7 +577,12 @@ const Create = () => {
       inputUnit.toLowerCase() === "tablespoons" &&
       toUnit.toLowerCase() === "cubic-feet"
     ) {
-      if (studentAnswer == tablespoonsToCubicfeet(input)) {
+      console.log(parseFloat(studentAnswer).toFixed(1));
+      console.log(tablespoonsToCubicfeet(input).toFixed(1));
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        tablespoonsToCubicfeet(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -477,7 +593,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-feet" &&
       toUnit.toLowerCase() === "tablespoons"
     ) {
-      if (studentAnswer == cubicfeetToTablespoons(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicfeetToTablespoons(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -488,7 +607,10 @@ const Create = () => {
       inputUnit.toLowerCase() === "cups" &&
       toUnit.toLowerCase() === "cubic-inches"
     ) {
-      if (studentAnswer == cupsToCubicinches(input)) {
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cupsToCubicinches(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -499,7 +621,12 @@ const Create = () => {
       inputUnit.toLowerCase() === "cubic-inches" &&
       toUnit.toLowerCase() === "cups"
     ) {
-      if (studentAnswer == cubicinchesToCups(input)) {
+      console.log(parseFloat(studentAnswer).toFixed(1));
+      console.log(cubicinchesToCups(input).toFixed(1));
+      if (
+        parseFloat(studentAnswer).toFixed(1) ===
+        cubicinchesToCups(input).toFixed(1)
+      ) {
         grade = "correct";
         setMessage("correct");
       } else {
@@ -510,7 +637,7 @@ const Create = () => {
 
     console.log(blog);
     console.log(input);
-    console.log(celsiusToFahrenheit(input));
+
     console.log(result);
     console.log(grade);
   };
@@ -523,6 +650,11 @@ const Create = () => {
   const rankineToFahrenheit = (rankine) => rankine - 459.67;
   const fahrenheitToKelvin = (fahrenheit) =>
     ((fahrenheit - 32) * 5) / 9 + 273.15;
+  const kelvinToFahrenheit = (kelvin) => ((kelvin - 273) * 9) / 5 + 32;
+  const celsiusToRankine = (celsius) => ((celsius + 273.15) * 9) / 5;
+  const rankineToCelsius = (rankine) => ((rankine - 491.67) * 5) / 9;
+  const rankineToKelvin = (rankine) => (rankine * 5) / 9;
+  const kelvinToRankine = (kelvin) => (kelvin * 9) / 5;
 
   const litersToGallons = (liters) => liters * 0.264172;
   const gallonsToLiters = (gallons) => gallons * 3.78541;
@@ -543,7 +675,7 @@ const Create = () => {
   const litersToTablespoons = (liters) => liters * 67.628;
   const tablespoonsToLiters = (liters) => liters * 0.01478;
   const litersToCups = (liters) => liters * 4.2267;
-  const cupsToLiters = (cups) => cups * 0.2365;
+  const cupsToLiters = (cups) => cups / 4.227;
   const litersToCubicfeet = (liters) => liters * 0.0353;
   const cubicfeetToLiters = (cubicfeet) => cubicfeet * 28.317;
 
